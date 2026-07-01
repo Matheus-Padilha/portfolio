@@ -82,29 +82,33 @@
     return t * t * (3 - 2 * t);
   }
 
-  /* Curva do texto: flip rapido entre 38% e 62% do progresso
-     Isso garante que enquanto o fundo ainda eh claro, o texto
-     ainda eh escuro — e vice-versa. Zero zona cinza invisivel. */
+  /* A transição do fundo agora é muito mais rápida para evitar a zona cinza.
+     Ocorre entre 45% e 55% do progresso do scroll. */
+  function bgCurve(p) {
+    return smoothstep(0.45, 0.55, p);
+  }
+
+  /* Curva do texto: mesma velocidade do background para sincronizar perfeitamente */
   function textCurve(p) {
-    return smoothstep(0.38, 0.62, p);
+    return smoothstep(0.45, 0.55, p);
   }
 
-  /* Backgrounds secundarios: ligeiramente mais lentos */
+  /* Superficies secundarias */
   function surfaceCurve(p) {
-    return smoothstep(0.05, 0.95, p);
+    return smoothstep(0.45, 0.55, p);
   }
 
-  /* Bordas: transicao propria */
+  /* Bordas */
   function borderCurve(p) {
-    return smoothstep(0.20, 0.80, p);
+    return smoothstep(0.45, 0.55, p);
   }
 
   function applyTheme(progress) {
     var root = document.documentElement;
     var p = clamp(progress, 0, 1);
 
-    /* Background principal: transicao continua */
-    var bg = lerpColor(LIGHT.bg, DARK.bg, smoothstep(0, 1, p));
+    /* Background principal: transicao rapida no meio */
+    var bg = lerpColor(LIGHT.bg, DARK.bg, bgCurve(p));
     root.style.setProperty(CSS_VARS.bg, 'rgb(' + bg.join(',') + ')');
 
     /* Superficies secundarias */

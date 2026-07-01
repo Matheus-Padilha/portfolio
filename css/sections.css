@@ -18,9 +18,19 @@
   align-items: center;
 }
 
-/* ---- Photo Placeholder ---- */
+/* ---- Photo Placeholder & 3D Canvas ---- */
 .about-visual {
   position: relative;
+}
+
+#about-canvas {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  z-index: -1;
+  pointer-events: none; /* Let clicks pass through */
 }
 
 .photo-placeholder {
@@ -28,7 +38,7 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  border-radius: 0; /* Square corners */
   overflow: hidden;
   background: var(--bg-surface);
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
@@ -203,21 +213,22 @@
 /* ---- Skill Card 3D ---- */
 .skill-card {
   position: relative;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  background: #111111; /* Inverted background */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Inverted border */
   border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: none;
   /* border and shadow transition only — tilt handled by JS */
-  transition: border-color 0.35s ease, box-shadow 0.5s ease;
+  transition: border-color 0.35s ease, box-shadow 0.5s ease, background 0.35s ease;
 }
 
 .skill-card:hover {
-  border-color: var(--text-muted);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: #0a0a0a;
   box-shadow:
-    0 24px 48px rgba(0,0,0,0.13),
-    0  8px 16px rgba(0,0,0,0.07),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+    0 24px 48px rgba(0,0,0,0.3),
+    0  8px 16px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 /* Shine — follows mouse position via JS-updated CSS vars */
@@ -253,7 +264,7 @@
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  color: var(--text-primary);
+  color: #ffffff; /* Inverted color */
   transform: translateZ(30px);
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -285,7 +296,7 @@
   display: block;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #ffffff; /* Inverted color */
   letter-spacing: -0.01em;
   line-height: 1;
 }
@@ -294,7 +305,7 @@
 .skill-accent-line {
   height: 1px;
   width: 100%;
-  background: var(--border);
+  background: rgba(255, 255, 255, 0.2); /* Inverted border */
   position: relative;
   overflow: hidden;
 }
@@ -306,7 +317,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: var(--text-primary);
+  background: #ffffff; /* Inverted fill */
   transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -322,8 +333,8 @@
   font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.14em;
-  color: var(--text-muted);
-  opacity: 0.45;
+  color: rgba(255, 255, 255, 0.5); /* Inverted tag color */
+  opacity: 0.8;
   user-select: none;
   z-index: 2;
 }
@@ -469,7 +480,8 @@
 
 .project-card-pop .img-base {
   width: 100%;
-  height: 100%;
+  height: auto; /* changed from 100% so aspect-ratio dictates height */
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   transition: transform var(--transition-slow);
   border-top-left-radius: var(--radius-xl);
@@ -479,6 +491,7 @@
 /* Float images — start tucked inside the card boundary */
 .project-card-pop .img-float {
   position: absolute;
+  aspect-ratio: 16 / 10;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.55);
   border: 1px solid rgba(255,255,255,0.12);
