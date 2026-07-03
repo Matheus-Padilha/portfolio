@@ -160,7 +160,7 @@
     const dt = (now - lastTime) * 0.001; // delta time em segundos
     lastTime = now;
 
-    const progress = tl.progress(); // 0 no topo, 1 na seção projetos
+    const progress = Math.max(0, Math.min(tl.progress(), 1)); // Garante limite entre 0 e 1
     const intensity = 1 - Math.pow(progress, 0.5); // Fator que zera ao montar o cubo
 
     cubes.forEach(item => {
@@ -185,8 +185,9 @@
       item.mesh.rotation.z = 0; 
     });
 
-    // Rotação suave de todo o grupo SOMENTE quando não houver scroll ativo
-    if (!isScrolling) {
+    // Rotação suave de todo o grupo quando não houver scroll ativo,
+    // ou se o cubo já estiver 100% montado (assim ele continua girando ao passar dele)
+    if (!isScrolling || progress >= 0.98) {
       cubesGroup.rotation.x += 0.0015;
       cubesGroup.rotation.y += 0.0025;
     }
