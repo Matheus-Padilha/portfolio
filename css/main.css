@@ -61,7 +61,6 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -95,6 +94,20 @@ button {
 input, textarea {
   font-family: inherit;
   font-size: inherit;
+}
+
+/* ════════════════════════════════════════
+   CUBES 3D CANVAS
+════════════════════════════════════════ */
+#cubes-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.8; /* Aumentado um pouco a visibilidade */
 }
 
 /* ════════════════════════════════════════

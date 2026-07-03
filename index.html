@@ -25,6 +25,9 @@
 
 <body>
 
+  <!-- Cubes 3D Canvas Background -->
+  <canvas id="cubes-canvas" aria-hidden="true"></canvas>
+
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor">
     <div class="cursor-dot"></div>
@@ -203,9 +206,9 @@
             </div>
             <div class="stat-item reveal-scale stagger-3">
               <div class="stat-value">
-                <span class="stat-number count-up" data-target="100" aria-label="100%">0</span><span class="stat-suffix">%</span>
+                <span class="stat-number count-up" data-target="24" aria-label="24 por 7">0</span><span class="stat-suffix">/7</span>
               </div>
-              <span class="stat-label">Dedicação</span>
+              <span class="stat-label">Automações</span>
             </div>
           </div>
         </div>
@@ -412,7 +415,7 @@
       <div class="projects-grid" id="projects-grid">
 
         <!-- Project 1: UniZap -->
-        <a href="https://unizap.unitran.org/auth" class="project-card project-card-pop tilt-card" id="project-1"
+        <a href="https://paginaunizap.unitran.org/" class="project-card project-card-pop tilt-card" id="project-1"
           aria-label="UniZap" target="_blank" rel="noopener">
           <div class="project-image project-image-composition">
             <img src="images/unizap-details2.jpg" alt="UniZap Dashboard" class="img-base">
@@ -633,6 +636,7 @@
   <script src="js/three-scene.js"></script>
   <script src="js/main.js"></script>
   <script src="js/about-scene.js"></script>
+  <script src="js/cubes-scene.js"></script>
   <script src="js/animations.js"></script>
 
 </body>

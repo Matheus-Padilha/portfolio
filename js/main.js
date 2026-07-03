@@ -262,14 +262,38 @@
      SMOOTH ANCHOR LINKS
   ════════════════════════════════════════ */
   function initSmoothAnchors() {
+    const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      a.addEventListener('click', (e) => {
-        const target = document.querySelector(a.getAttribute('href'));
+      a.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        const target = document.querySelector(href);
         if (!target) return;
+        
         e.preventDefault();
+        
         const offset = 80; // navbar height
-        const top    = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+        const startPosition = window.scrollY;
+        const distance = targetPosition - startPosition;
+        const duration = 800; // Duração da animação em ms
+        let startTime = null;
+
+        function animation(currentTime) {
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const progress = Math.min(timeElapsed / duration, 1);
+          
+          window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+          
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+          }
+        }
+
+        requestAnimationFrame(animation);
       });
     });
   }
