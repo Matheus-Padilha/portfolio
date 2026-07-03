@@ -7,20 +7,22 @@
    ABOUT SECTION
 ════════════════════════════════════════ */
 .about-section {
-  background: var(--bg);
+  background: transparent;
   border-top: 1px solid var(--border);
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 380px 1fr;
-  gap: 5rem;
-  align-items: center;
+  gap: 2rem 5rem; /* row-gap: 2rem, column-gap: 5rem */
 }
 
 /* ---- Photo Placeholder & 3D Canvas ---- */
 .about-visual {
   position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center; /* Centered vertically with Row 1 content (the card) */
 }
 
 #about-canvas {
@@ -155,10 +157,25 @@
 }
 
 /* ---- Stats ---- */
+.about-text-card {
+  grid-column: 2;
+  grid-row: 1;
+  background: var(--bg-surface);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0; /* Managed by grid gap */
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+
 .about-stats {
+  grid-column: 2;
+  grid-row: 2;
   display: flex;
   gap: 2.5rem;
-  margin-top: 3rem;
+  margin-top: 0; /* Managed by grid gap */
+}
   padding-top: 2.5rem;
   border-top: 1px solid var(--border);
 }
@@ -198,7 +215,7 @@
    SKILLS SECTION
 ════════════════════════════════════════ */
 .skills-section {
-  background: var(--bg-secondary);
+  background: transparent;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -347,8 +364,13 @@
 /* ════════════════════════════════════════
    PROJECTS SECTION
 ════════════════════════════════════════ */
+.contact-section {
+  background: transparent;
+  border-top: 1px solid var(--border);
+}
+
 .projects-section {
-  background: var(--bg);
+  background: transparent;
   border-top: 1px solid var(--border);
 }
 
@@ -833,6 +855,10 @@
 @media (max-width: 768px) {
   /* About */
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-visual, .about-text-card, .about-stats {
+    grid-column: auto;
+    grid-row: auto;
+  }
   .about-visual { max-width: 320px; }
   .photo-placeholder { aspect-ratio: 1; }
   .about-badge { bottom: -1rem; right: -1rem; }
