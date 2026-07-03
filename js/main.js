@@ -274,7 +274,7 @@
         
         e.preventDefault();
         
-        const offset = 10; // adjusted from 80 to account for section padding and align content under navbar
+        const offset = -60; // negative offset to scroll past the section padding and center the header content
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
         const startPosition = window.scrollY;
         const distance = targetPosition - startPosition;
