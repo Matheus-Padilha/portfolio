@@ -62,11 +62,12 @@
 html {
   font-size: 16px;
   overflow-x: hidden;
+  background-color: var(--bg); /* Moved from body */
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg);
+  background-color: transparent; /* Changed so negative z-index children are visible above html background */
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -105,7 +106,7 @@ input, textarea {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 999;
+  z-index: -2;
   pointer-events: none;
   opacity: 0.8; /* Aumentado um pouco a visibilidade */
 }

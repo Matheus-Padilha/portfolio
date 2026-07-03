@@ -274,7 +274,7 @@
         
         e.preventDefault();
         
-        const offset = 80; // navbar height
+        const offset = 10; // adjusted from 80 to account for section padding and align content under navbar
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
         const startPosition = window.scrollY;
         const distance = targetPosition - startPosition;
