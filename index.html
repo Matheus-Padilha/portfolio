@@ -13,8 +13,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
@@ -123,6 +122,12 @@
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </a>
+          <a href="https://wa.me/5549998321120" target="_blank" rel="noopener"
+            class="hero-social-link magnetic-btn" aria-label="WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -229,157 +234,84 @@
 
       <h2 class="section-title reveal-text">Meu <em>arsenal</em> técnico</h2>
 
-      <div class="skills-grid" id="skills-grid">
+      <ul class="skills-list" id="skills-list">
 
-        <!-- React -->
-        <div class="skill-card reveal-scale stagger-1" id="skill-react">
-          <span class="skill-card-tag">01</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"
-                stroke-linecap="round">
+        <!-- 1. React -->
+        <li class="skill-list-item reveal-text stagger-1">
+          <div class="skill-list-header">
+            <div class="skill-list-icon">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
                 <ellipse cx="20" cy="20" rx="17" ry="6.5" />
                 <ellipse cx="20" cy="20" rx="17" ry="6.5" transform="rotate(60 20 20)" />
                 <ellipse cx="20" cy="20" rx="17" ry="6.5" transform="rotate(120 20 20)" />
                 <circle cx="20" cy="20" r="2.4" fill="currentColor" stroke="none" />
               </svg>
             </div>
-            <div class="skill-card-body">
-              <span class="skill-name">React</span>
-              <div class="skill-accent-line"></div>
-            </div>
+            <h3 class="skill-list-title">REACT & FRONTEND</h3>
+            <span class="skill-list-category">[ WEB ]</span>
           </div>
-        </div>
+          <div class="skill-list-body">
+            <p class="skill-list-desc">Construção de Single Page Applications de alto desempenho, com componentização inteligente e interfaces hiper fluidas.</p>
+          </div>
+        </li>
 
-        <!-- SQL -->
-        <div class="skill-card reveal-scale stagger-2" id="skill-sql">
-          <span class="skill-card-tag">02</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
+        <!-- 2. Node.js -->
+        <li class="skill-list-item reveal-text stagger-2">
+          <div class="skill-list-header">
+            <div class="skill-list-icon">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 4 L34 12 L34 28 L20 36 L6 28 L6 12 Z" />
+                <text x="11.5" y="24" font-size="8" font-weight="700" font-family="ui-monospace,Menlo,monospace" fill="currentColor" stroke="none">Node</text>
+              </svg>
+            </div>
+            <h3 class="skill-list-title">NODE.JS & APIS</h3>
+            <span class="skill-list-category">[ BACKEND ]</span>
+          </div>
+          <div class="skill-list-body">
+            <p class="skill-list-desc">Arquitetura de microsserviços, construção de APIs RESTful escaláveis e engenharia de automações corporativas de backend.</p>
+          </div>
+        </li>
+
+        <!-- 3. TypeScript -->
+        <li class="skill-list-item reveal-text stagger-3">
+          <div class="skill-list-header">
+            <div class="skill-list-icon">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+                <rect x="3" y="3" width="34" height="34" rx="5" stroke="currentColor" stroke-width="1.5" />
+                <text x="7" y="27" font-size="15" font-weight="800" font-family="ui-monospace,Menlo,monospace" fill="currentColor">TS</text>
+              </svg>
+            </div>
+            <h3 class="skill-list-title">TYPESCRIPT</h3>
+            <span class="skill-list-category">[ LANG ]</span>
+          </div>
+          <div class="skill-list-body">
+            <p class="skill-list-desc">Garantia de códigos robustos e tolerantes a falhas. Tipagem estática avançada para escalar bases de código massivas com segurança.</p>
+          </div>
+        </li>
+
+        <!-- 4. Databases -->
+        <li class="skill-list-item reveal-text stagger-4">
+          <div class="skill-list-header">
+            <div class="skill-list-icon">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <ellipse cx="20" cy="11" rx="12" ry="4.5" />
                 <path d="M8 11v8c0 2.485 5.373 4.5 12 4.5S32 21.485 32 19v-8" />
                 <path d="M8 19v8c0 2.485 5.373 4.5 12 4.5S32 29.485 32 27v-8" />
               </svg>
             </div>
-            <div class="skill-card-body">
-              <span class="skill-name">SQL</span>
-              <div class="skill-accent-line"></div>
-            </div>
+            <h3 class="skill-list-title">MODELAGEM SQL</h3>
+            <span class="skill-list-category">[ DATA ]</span>
           </div>
-        </div>
-
-        <!-- TypeScript -->
-        <div class="skill-card reveal-scale stagger-3" id="skill-ts">
-          <span class="skill-card-tag">03</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect x="3" y="3" width="34" height="34" rx="5" stroke="currentColor" stroke-width="1.5" />
-                <text x="7" y="27" font-size="15" font-weight="800" font-family="ui-monospace,Menlo,monospace"
-                  fill="currentColor">TS</text>
-              </svg>
-            </div>
-            <div class="skill-card-body">
-              <span class="skill-name">TypeScript</span>
-              <div class="skill-accent-line"></div>
-            </div>
+          <div class="skill-list-body">
+            <p class="skill-list-desc">Design de arquiteturas relacionais profundas, normalização e tuning de queries de alta performance em PostgreSQL e MySQL.</p>
           </div>
-        </div>
+        </li>
 
-        <!-- JavaScript -->
-        <div class="skill-card reveal-scale stagger-4" id="skill-js">
-          <span class="skill-card-tag">04</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect x="3" y="3" width="34" height="34" rx="5" stroke="currentColor" stroke-width="1.5" />
-                <text x="7" y="27" font-size="15" font-weight="800" font-family="ui-monospace,Menlo,monospace"
-                  fill="currentColor">JS</text>
-              </svg>
-            </div>
-            <div class="skill-card-body">
-              <span class="skill-name">JavaScript</span>
-              <div class="skill-accent-line"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CSS -->
-        <div class="skill-card reveal-scale stagger-5" id="skill-css">
-          <span class="skill-card-tag">05</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15,10 6,20 15,30" />
-                <polyline points="25,10 34,20 25,30" />
-                <line x1="23" y1="7" x2="17" y2="33" />
-              </svg>
-            </div>
-            <div class="skill-card-body">
-              <span class="skill-name">CSS</span>
-              <div class="skill-accent-line"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Node.js -->
-        <div class="skill-card reveal-scale stagger-6" id="skill-node">
-          <span class="skill-card-tag">06</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 4 L34 12 L34 28 L20 36 L6 28 L6 12 Z" />
-                <text x="11.5" y="24" font-size="8" font-weight="700" font-family="ui-monospace,Menlo,monospace"
-                  fill="currentColor" stroke="none">Node</text>
-              </svg>
-            </div>
-            <div class="skill-card-body">
-              <span class="skill-name">Node.js</span>
-              <div class="skill-accent-line"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Git -->
-        <div class="skill-card reveal-scale stagger-7" id="skill-git">
-          <span class="skill-card-tag">07</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="32" r="3.5" />
-                <circle cx="12" cy="10" r="3.5" />
-                <circle cx="30" cy="20" r="3.5" />
-                <line x1="12" y1="13.5" x2="12" y2="28.5" />
-                <path d="M12 13.5 Q12 20 30 20" />
-              </svg>
-            </div>
-            <div class="skill-card-body">
-              <span class="skill-name">Git</span>
-              <div class="skill-accent-line"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- LLM's -->
-        <div class="skill-card reveal-scale stagger-8" id="skill-llms">
-          <span class="skill-card-tag">08</span>
-          <div class="skill-card-inner">
-            <div class="skill-shine" aria-hidden="true"></div>
-            <div class="skill-icon-3d" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round">
+        <!-- 5. LLMs -->
+        <li class="skill-list-item reveal-text stagger-5">
+          <div class="skill-list-header">
+            <div class="skill-list-icon">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
                 <circle cx="20" cy="7" r="3" />
                 <circle cx="7" cy="30" r="3" />
                 <circle cx="33" cy="30" r="3" />
@@ -392,14 +324,53 @@
                 <line x1="20" y1="10" x2="31.5" y2="27" />
               </svg>
             </div>
-            <div class="skill-card-body">
-              <span class="skill-name">LLM's</span>
-              <div class="skill-accent-line"></div>
-            </div>
+            <h3 class="skill-list-title">IA & LLMs</h3>
+            <span class="skill-list-category">[ AI ]</span>
           </div>
-        </div>
+          <div class="skill-list-body">
+            <p class="skill-list-desc">Engenharia de prompts estruturados, orquestração de agentes autônomos e arquiteturas RAG para otimizar processos de negócios.</p>
+          </div>
+        </li>
 
-      </div>
+        <!-- 6. Advanced Styling -->
+        <li class="skill-list-item reveal-text stagger-6">
+          <div class="skill-list-header">
+            <div class="skill-list-icon">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15,10 6,20 15,30" />
+                <polyline points="25,10 34,20 25,30" />
+                <line x1="23" y1="7" x2="17" y2="33" />
+              </svg>
+            </div>
+            <h3 class="skill-list-title">DESIGN SYSTEMS</h3>
+            <span class="skill-list-category">[ UI/UX ]</span>
+          </div>
+          <div class="skill-list-body">
+            <p class="skill-list-desc">Implementação de estética premium (High-End), animações paramétricas, Tailwind e foco obsessivo nos micro-detalhes de UI.</p>
+          </div>
+        </li>
+
+        <!-- 7. Git -->
+        <li class="skill-list-item reveal-text stagger-7">
+          <div class="skill-list-header">
+            <div class="skill-list-icon">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="32" r="3.5" />
+                <circle cx="12" cy="10" r="3.5" />
+                <circle cx="30" cy="20" r="3.5" />
+                <line x1="12" y1="13.5" x2="12" y2="28.5" />
+                <path d="M12 13.5 Q12 20 30 20" />
+              </svg>
+            </div>
+            <h3 class="skill-list-title">CI / CD & GIT</h3>
+            <span class="skill-list-category">[ DEVOPS ]</span>
+          </div>
+          <div class="skill-list-body">
+            <p class="skill-list-desc">Versionamento avançado com Git, gestão de esteiras no GitHub Actions e automação de integrações contínuas.</p>
+          </div>
+        </li>
+
+      </ul>
     </div>
   </section>
 
@@ -500,18 +471,16 @@
           </p>
 
           <div class="social-links" id="social-links">
-            <a href="mailto:dasilvapadilhamatheus01@gmail.com" class="social-link" id="social-email"
-              aria-label="Enviar email">
+            <a href="https://wa.me/5549998321120" class="social-link" id="social-whatsapp"
+              aria-label="Enviar mensagem no WhatsApp" target="_blank" rel="noopener">
               <div class="social-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
               </div>
               <div class="social-text">
-                <span class="social-name">Email</span>
-                <span class="social-handle">dasilvapadilhamatheus01@gmail.com</span>
+                <span class="social-name">WhatsApp</span>
+                <span class="social-handle">Vamos conversar?</span>
               </div>
               <svg class="social-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" aria-hidden="true">
@@ -628,6 +597,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- ══════════════════ SECTION NAVIGATION WIDGET ══════════════════ -->
+  <div class="section-nav-widget" aria-label="Navegação entre seções">
+    <button class="nav-btn" id="nav-up" aria-label="Seção anterior">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+    <button class="nav-btn" id="nav-down" aria-label="Próxima seção">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
 
   <!-- External Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

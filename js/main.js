@@ -18,6 +18,7 @@
     initContactForm();
     initSmoothAnchors();
     initSectionActiveNav();
+    initSectionNavWidget();
   });
 
   /* ════════════════════════════════════════
@@ -416,6 +417,94 @@
           'transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
         inner.style.transform = '';
       });
+    });
+  }
+
+  /* ════════════════════════════════════════
+     SECTION NAVIGATION WIDGET
+  ════════════════════════════════════════ */
+  function initSectionNavWidget() {
+    const sections = Array.from(document.querySelectorAll('.section, .hero')); 
+    const btnUp = document.getElementById('nav-up');
+    const btnDown = document.getElementById('nav-down');
+    
+    if (!btnUp || !btnDown || sections.length === 0) return;
+
+    // Função de animação suave extraída
+    const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    function scrollToSection(target) {
+      if (!target) return;
+      const offset = target.classList.contains('hero') ? 0 : -60; // offset menor no hero
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+      const startPosition = window.scrollY;
+      const distance = targetPosition - startPosition;
+      const duration = 800;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        
+        window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+        
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+      requestAnimationFrame(animation);
+    }
+
+    btnUp.addEventListener('click', () => {
+      let target = null;
+      const scrollY = window.scrollY;
+      
+      // Itera de baixo pra cima
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const top = sections[i].getBoundingClientRect().top + window.scrollY;
+        const offset = sections[i].classList.contains('hero') ? 0 : -60;
+        const targetScroll = top - offset;
+        
+        // Se a posição de destino desta seção for menor que o scroll atual
+        if (targetScroll < scrollY - 10) {
+          target = sections[i];
+          break;
+        }
+      }
+      if (!target) target = sections[0]; // fallback top
+      scrollToSection(target);
+    });
+
+    btnDown.addEventListener('click', () => {
+      let target = null;
+      const scrollY = window.scrollY;
+      
+      // Itera de cima pra baixo
+      for (let i = 0; i < sections.length; i++) {
+        const top = sections[i].getBoundingClientRect().top + window.scrollY;
+        const offset = sections[i].classList.contains('hero') ? 0 : -60;
+        const targetScroll = top - offset;
+        
+        // Se a posição de destino desta seção for maior que o scroll atual
+        if (targetScroll > scrollY + 10) {
+          target = sections[i];
+          break;
+        }
+      }
+      if (target) scrollToSection(target);
+    });
+
+    // Adiciona suporte às setas do teclado
+    window.addEventListener('keydown', (e) => {
+      // Evita o comportamento padrão do navegador caso esteja navegando pelas setas
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        btnUp.click();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        btnDown.click();
+      }
     });
   }
 

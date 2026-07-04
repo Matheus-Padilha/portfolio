@@ -32,26 +32,39 @@
   /* ────────────────────────────────────────
      Lights
   ──────────────────────────────────────── */
+  // Luz ambiente suave para manter as sombras bem escuras
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
   scene.add(ambientLight);
 
-  const mainLight = new THREE.DirectionalLight(0xffffff, 2.5);
-  mainLight.position.set(10, 10, 10);
+  // Luz principal forte vindo da frente/direita para criar highlights no vidro/metal
+  const mainLight = new THREE.DirectionalLight(0xffffff, 4.0);
+  mainLight.position.set(5, 8, 10);
   scene.add(mainLight);
 
-  const fillLight = new THREE.DirectionalLight(0x77aaff, 1.0);
-  fillLight.position.set(-10, -10, -10);
+  // Luz de contra (Rim light) vindo de trás/esquerda MUITO forte
+  // É essa luz que cria a "borda" brilhante que separa o cubo preto do fundo preto!
+  const rimLight = new THREE.DirectionalLight(0xffffff, 6.0);
+  rimLight.position.set(-10, 10, -10);
+  scene.add(rimLight);
+
+  // Leve preenchimento frontal azulado para dar um toque premium nas áreas de sombra
+  const fillLight = new THREE.DirectionalLight(0x4466ff, 1.5);
+  fillLight.position.set(-5, -5, 8);
   scene.add(fillLight);
+
+  // Luz de destaque dinâmico (Orbita o cubo para criar reflexos que varrem a superfície)
+  const sweepLight = new THREE.PointLight(0xffffff, 20.0, 50);
+  scene.add(sweepLight);
 
   /* ────────────────────────────────────────
      Material e Geometria
   ──────────────────────────────────────── */
-  // Material Sombrio Premium
+  // Material Sombrio Premium - Retorno à cor original quase preta
   const material = new THREE.MeshPhysicalMaterial({
-    color: 0x111111,
-    emissive: 0x050505, // Leve brilho base para garantir que seja visível
-    metalness: 0.9,
-    roughness: 0.1,
+    color: 0x050505, // Quase preto absoluto
+    emissive: 0x000000, // Sem emissão para não deixar cinza lavado
+    metalness: 0.95, // Altamente reflexivo (glossy)
+    roughness: 0.1, // Superfície lisa para reflexos nítidos
     clearcoat: 1.0,
     clearcoatRoughness: 0.1,
   });
@@ -116,9 +129,11 @@
     scrollTrigger: {
       trigger: 'body',
       start: 'top top',
-      endTrigger: '#projects', // Termina de montar quando chegar na seção de projetos
+      endTrigger: '#project-3', // Termina de montar quando chegar no projeto 3
       end: 'center center',
       scrub: 1.5, // Efeito suave ao rolar
+      pin: '#cubes-canvas', // Fixa o canvas na tela enquanto anima
+      pinSpacing: false     // Evita empurrar o layout para baixo
     }
   });
 
@@ -179,10 +194,12 @@
       d.rx += dt * d.speed * 8;
       d.ry += dt * d.speed * 10;
       
+      // Utilizando Quaternion Slerp para evitar pulos quando os ângulos ficam muito grandes
+      const idleQ = new THREE.Quaternion().setFromEuler(new THREE.Euler(d.rx, d.ry, 0));
+      const targetQ = new THREE.Quaternion(); // Rotação zero (alinhado)
+      
       // Quando intensity chegar a 0, as rotações ficarão perfeitamente alinhadas em 0
-      item.mesh.rotation.x = d.rx * intensity;
-      item.mesh.rotation.y = d.ry * intensity;
-      item.mesh.rotation.z = 0; 
+      item.mesh.quaternion.slerpQuaternions(targetQ, idleQ, intensity); 
     });
 
     // Rotação suave de todo o grupo quando não houver scroll ativo,
@@ -191,6 +208,12 @@
       cubesGroup.rotation.x += 0.0015;
       cubesGroup.rotation.y += 0.0025;
     }
+
+    // Animação da luz de destaque orbitando o cubo (Efeito de reflexo varrendo o metal)
+    // Usamos o centro do grupo (x: 3) como âncora
+    sweepLight.position.x = 3 + Math.sin(now * 0.001) * 10;
+    sweepLight.position.y = Math.cos(now * 0.0013) * 10;
+    sweepLight.position.z = Math.sin(now * 0.0008) * 10 + 6;
 
     renderer.render(scene, camera);
     requestAnimationFrame(render);
